@@ -2,8 +2,8 @@ Pod::Spec.new do |s|
   s.name         = "GOSScrollViewDelegateMultiplexer"
   s.version      = "1.0.0"
   s.authors      = { 'Chris Cox' => 'cjcox@google.com' }
-  s.summary      = "A control providing an alternative to animating an array of images with an UIImageView."
-  s.homepage     = "https://github.com/google/GOSSpritedAnimationView"
+  s.summary      = "A proxy object for UIScrollViewDelegate that forwards all received events to an ordered list of registered observers."
+  s.homepage     = "https://github.com/google/GOSScrollViewDelegateMultiplexer"
   s.license      = 'Apache 2.0'
   s.source       = { :git => "https://github.com/google/GOSScrollViewDelegateMultiplexer.git", :tag => s.version.to_s }
   s.platform     = :ios, '7.0'

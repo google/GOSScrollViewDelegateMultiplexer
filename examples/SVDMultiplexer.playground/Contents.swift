@@ -5,11 +5,11 @@ This playground explores the use of a UIScrollViewDelegate multiplexer in order 
 
 Requirements: **Xcode 7.1 or higher**.
 
-We've created a framework called MaterialScrollViewDelegateMultiplexer in which we've placed the relevant code.
+We've created a framework called GOSScrollViewDelegateMultiplexer in which we've placed the relevant code.
 
-If the Playground can't find the framework then you need to initiate a build of the ScrollViewDelegateMultiplexerExample project. Also make sure that you're viewing the playground via Examples.xcworkspace.
+If the Playground can't find the framework then you need to initiate a build of the ScrollViewDelegateMultiplexer project. Also make sure that you're viewing the playground via Examples.xcworkspace.
 */
-import MaterialScrollViewDelegateMultiplexer
+import GOSScrollViewDelegateMultiplexer
 
 //: We'll use the XCPlayground framework to show a live view in the Assistant editor. Simply click the Assistant editor icon to view the live view.
 import XCPlayground
@@ -21,7 +21,7 @@ The multiplexer object is meant to be assigned as the delegate of a UIScrollView
 
 For the purposes of this Playground we'll store the multiplexer in the global scope. In practice you'd store this multiplexer as a property on your UIViewController.
 */
-let multiplexer = MDCScrollViewDelegateMultiplexer()
+let multiplexer = GOSScrollViewDelegateMultiplexer()
 
 /*:
 Let's create a hypothetical object that is interested in reacting to UIScrollViewDelegate events. When it receives a `scrollViewDidScroll:` event it will execute a provided block.
