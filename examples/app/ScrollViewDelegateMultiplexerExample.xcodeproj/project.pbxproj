@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D64A4F91CB41EAD00EC4788 /* GOSScrollViewDelegateMultiplexerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D64A4F71CB41EAD00EC4788 /* GOSScrollViewDelegateMultiplexerTests.m */; };
+		5D64A4FA1CB41EAD00EC4788 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D64A4F81CB41EAD00EC4788 /* Info.plist */; };
 		666CA7581CB41B6F001B1884 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 666CA7571CB41B6F001B1884 /* main.m */; };
 		666CA75B1CB41B6F001B1884 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 666CA75A1CB41B6F001B1884 /* AppDelegate.m */; };
 		666CA7631CB41B6F001B1884 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 666CA7621CB41B6F001B1884 /* Assets.xcassets */; };
@@ -14,11 +16,10 @@
 		666CA7751CB41BBB001B1884 /* ScrollViewDelegateMultiplexer.h in Headers */ = {isa = PBXBuildFile; fileRef = 666CA7741CB41BBB001B1884 /* ScrollViewDelegateMultiplexer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		666CA7791CB41BBB001B1884 /* ScrollViewDelegateMultiplexer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 666CA7721CB41BBB001B1884 /* ScrollViewDelegateMultiplexer.framework */; };
 		666CA77A1CB41BBB001B1884 /* ScrollViewDelegateMultiplexer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 666CA7721CB41BBB001B1884 /* ScrollViewDelegateMultiplexer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		666CA7821CB41BDF001B1884 /* GOSScrollViewDelegateMultiplexer.h in Headers */ = {isa = PBXBuildFile; fileRef = 666CA7801CB41BDF001B1884 /* GOSScrollViewDelegateMultiplexer.h */; };
+		666CA7821CB41BDF001B1884 /* GOSScrollViewDelegateMultiplexer.h in Headers */ = {isa = PBXBuildFile; fileRef = 666CA7801CB41BDF001B1884 /* GOSScrollViewDelegateMultiplexer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		666CA7831CB41BDF001B1884 /* GOSScrollViewDelegateMultiplexer.m in Sources */ = {isa = PBXBuildFile; fileRef = 666CA7811CB41BDF001B1884 /* GOSScrollViewDelegateMultiplexer.m */; };
 		666CA7881CB41C0C001B1884 /* ObservingPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 666CA7851CB41C0C001B1884 /* ObservingPageControl.m */; };
 		666CA7891CB41C0C001B1884 /* SVDMTypicalUseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 666CA7871CB41C0C001B1884 /* SVDMTypicalUseViewController.m */; };
-		666CA7991CB41C62001B1884 /* GOSScrollViewDelegateMultiplexerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 666CA7981CB41C62001B1884 /* GOSScrollViewDelegateMultiplexerTests.m */; };
 		666CA79A1CB41C7E001B1884 /* ScrollViewDelegateMultiplexer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 666CA7721CB41BBB001B1884 /* ScrollViewDelegateMultiplexer.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5D64A4F71CB41EAD00EC4788 /* GOSScrollViewDelegateMultiplexerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GOSScrollViewDelegateMultiplexerTests.m; sourceTree = "<group>"; };
+		5D64A4F81CB41EAD00EC4788 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		666CA7531CB41B6F001B1884 /* ScrollViewDelegateMultiplexerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScrollViewDelegateMultiplexerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		666CA7571CB41B6F001B1884 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		666CA7591CB41B6F001B1884 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -71,8 +74,6 @@
 		666CA7861CB41C0C001B1884 /* SVDMTypicalUseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVDMTypicalUseViewController.h; path = ../../SVDMTypicalUseViewController.h; sourceTree = "<group>"; };
 		666CA7871CB41C0C001B1884 /* SVDMTypicalUseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SVDMTypicalUseViewController.m; path = ../../SVDMTypicalUseViewController.m; sourceTree = "<group>"; };
 		666CA78E1CB41C53001B1884 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		666CA7921CB41C53001B1884 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		666CA7981CB41C62001B1884 /* GOSScrollViewDelegateMultiplexerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GOSScrollViewDelegateMultiplexerTests.m; path = ../../../tests/unit/GOSScrollViewDelegateMultiplexerTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,12 +103,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D64A4F51CB41EAD00EC4788 /* tests */ = {
+			isa = PBXGroup;
+			children = (
+				5D64A4F61CB41EAD00EC4788 /* unit */,
+			);
+			name = tests;
+			path = ../../tests;
+			sourceTree = "<group>";
+		};
+		5D64A4F61CB41EAD00EC4788 /* unit */ = {
+			isa = PBXGroup;
+			children = (
+				5D64A4F71CB41EAD00EC4788 /* GOSScrollViewDelegateMultiplexerTests.m */,
+				5D64A4F81CB41EAD00EC4788 /* Info.plist */,
+			);
+			path = unit;
+			sourceTree = "<group>";
+		};
 		666CA74A1CB41B6F001B1884 = {
 			isa = PBXGroup;
 			children = (
 				666CA7551CB41B6F001B1884 /* ScrollViewDelegateMultiplexerExample */,
 				666CA7731CB41BBB001B1884 /* ScrollViewDelegateMultiplexer */,
-				666CA78F1CB41C53001B1884 /* UnitTests */,
+				5D64A4F51CB41EAD00EC4788 /* tests */,
 				666CA7541CB41B6F001B1884 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -165,15 +184,6 @@
 			);
 			name = src;
 			path = ../../../src;
-			sourceTree = "<group>";
-		};
-		666CA78F1CB41C53001B1884 /* UnitTests */ = {
-			isa = PBXGroup;
-			children = (
-				666CA7981CB41C62001B1884 /* GOSScrollViewDelegateMultiplexerTests.m */,
-				666CA7921CB41C53001B1884 /* Info.plist */,
-			);
-			path = UnitTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,6 +318,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D64A4FA1CB41EAD00EC4788 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,7 +348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				666CA7991CB41C62001B1884 /* GOSScrollViewDelegateMultiplexerTests.m in Sources */,
+				5D64A4F91CB41EAD00EC4788 /* GOSScrollViewDelegateMultiplexerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,7 +415,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -442,7 +453,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -514,7 +525,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = UnitTests/Info.plist;
+				INFOPLIST_FILE = ../../tests/unit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.google.UnitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -526,7 +537,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = UnitTests/Info.plist;
+				INFOPLIST_FILE = ../../tests/unit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.google.UnitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -562,6 +573,7 @@
 				666CA77C1CB41BBC001B1884 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		666CA7951CB41C53001B1884 /* Build configuration list for PBXNativeTarget "UnitTests" */ = {
 			isa = XCConfigurationList;
@@ -570,6 +582,7 @@
 				666CA7971CB41C53001B1884 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
