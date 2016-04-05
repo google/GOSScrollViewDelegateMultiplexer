@@ -9,7 +9,7 @@ We've created a framework called GOSScrollViewDelegateMultiplexer in which we've
 
 If the Playground can't find the framework then you need to initiate a build of the ScrollViewDelegateMultiplexer project. Also make sure that you're viewing the playground via Examples.xcworkspace.
 */
-import GOSScrollViewDelegateMultiplexer
+import ScrollViewDelegateMultiplexer
 
 //: We'll use the XCPlayground framework to show a live view in the Assistant editor. Simply click the Assistant editor icon to view the live view.
 import XCPlayground
