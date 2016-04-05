@@ -1,4 +1,5 @@
 # GOSScrollViewDelegateMultiplexer
+[![Build Status](https://travis-ci.org/google/GOSScrollViewDelegateMultiplexer.svg?branch=master)](https://travis-ci.org/google/GOSScrollViewDelegateMultiplexer)
 
 This class acts as a proxy object for `UIScrollViewDelegate` events and forwards all received
 events to an ordered list of registered observers.
