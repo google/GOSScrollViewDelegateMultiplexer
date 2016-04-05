@@ -20,5 +20,5 @@ script:
   - set -o pipefail
   - xcodebuild -version
   - xcodebuild -showsdks
-  - xcodebuild -workspace examples/app/ScrollViewDelegateMultiplexerExample.xcworkspace -scheme ScrollViewDelegateMultiplexerExample -sdk "$SDK" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO build test
+  - xcodebuild -workspace examples/app/ScrollViewDelegateMultiplexerExample.xcworkspace -scheme ScrollViewDelegateMultiplexerExample -sdk "$SDK" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO build test | xcpretty -c;
 
