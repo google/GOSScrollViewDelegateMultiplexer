@@ -8,6 +8,22 @@ events to an ordered list of registered observers.
 - Xcode 7.0 or higher.
 - iOS SDK version 7.0 or higher.
 
+### Installation with CocoaPods
+
+To add this component to your Xcode project using CocoaPods, add the following to your `Podfile`:
+
+~~~ bash
+$ pod 'GOSScrollViewDelegateMultiplexer'
+~~~
+
+Then, run the following command:
+
+~~~ bash
+$ pod install
+~~~
+
+- - -
+
 ## Overview
 
 When a `UIScrollViewDelegate` method invocation is received by the multiplexer, the multiplexer
@@ -20,6 +36,8 @@ observers implement the method, a default return value will be used.
 However, if a combiner is set and the receiving class conforms to the
 `GOSScrollViewDelegateCombining` protocol, then the receiving class can designate which result
 value to return via the use of the optional protocol methods.
+
+- - -
 
 ## Usage
 
