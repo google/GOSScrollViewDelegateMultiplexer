@@ -1,6 +1,8 @@
 language: objective-c
 osx_image: xcode7.2
 sudo: false
+xcode_workspace: examples/app/ScrollViewDelegateMultiplexerExample.xcworkspace
+xcode_scheme: ScrollViewDelegateMultiplexerExample
 env:
   global:
   - LC_CTYPE=en_US.UTF-8
@@ -16,5 +18,5 @@ script:
   - set -o pipefail
   - xcodebuild -version
   - xcodebuild -showsdks
-  - xcodebuild -workspace examples/app/ScrollViewDelegateMultiplexerExample.xcworkspace -scheme ScrollViewDelegateMultiplexerExample -sdk "$SDK" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty -c; 
+#  - xcodebuild -workspace examples/app/ScrollViewDelegateMultiplexerExample.xcworkspace -scheme ScrollViewDelegateMultiplexerExample -sdk "$SDK" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty -c; 
 
