@@ -1,4 +1,4 @@
-module_name: GOSScrollViewDelegateMultiplexer
+module: GOSScrollViewDelegateMultiplexer
 umbrella_header: src/GOSScrollViewDelegateMultiplexer.h
-objc_mode: true
+objc: true
 sdk: iphonesimulator
