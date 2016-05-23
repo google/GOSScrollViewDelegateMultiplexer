@@ -29,6 +29,7 @@
 @implementation SVDMTypicalUseViewController {
   UIScrollView *_scrollView;
   UIPageControl *_pageControl;
+  NSArray *_pageColors;
 
   GOSScrollViewDelegateMultiplexer *_multiplexer;
 }
@@ -43,32 +44,32 @@
   CGFloat boundsWidth = CGRectGetWidth(self.view.bounds);
   CGFloat boundsHeight = CGRectGetHeight(self.view.bounds);
 
-  NSArray *pageColors = @[ HEXCOLOR(0x81D4FA), HEXCOLOR(0x80CBC4), HEXCOLOR(0xFFCC80) ];
+  _pageColors = @[ HEXCOLOR(0x81D4FA), HEXCOLOR(0x80CBC4), HEXCOLOR(0xFFCC80) ];
 
   // Scroll view configuration
 
   _scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
   _scrollView.pagingEnabled = YES;
-  _scrollView.contentSize = CGSizeMake(boundsWidth * pageColors.count, boundsHeight);
+  _scrollView.contentSize = CGSizeMake(boundsWidth * _pageColors.count, boundsHeight);
   _scrollView.minimumZoomScale = 0.5;
   _scrollView.maximumZoomScale = 6.0;
 
   // Add pages to scrollView.
-  for (NSInteger i = 0; i < pageColors.count; i++) {
+  for (NSInteger i = 0; i < _pageColors.count; i++) {
     CGRect pageFrame = CGRectOffset(self.view.bounds, i * boundsWidth, 0);
     UILabel *page = [[UILabel alloc] initWithFrame:pageFrame];
     page.text = [NSString stringWithFormat:@"Page %zd", i + 1];
     page.font = [UIFont systemFontOfSize:50];
     page.textColor = [UIColor colorWithWhite:0 alpha:0.8];
     page.textAlignment = NSTextAlignmentCenter;
-    page.backgroundColor = pageColors[i];
+    page.backgroundColor = _pageColors[i];
     [_scrollView addSubview:page];
   }
 
   // Page control configuration
 
   ObservingPageControl *pageControl = [[ObservingPageControl alloc] init];
-  pageControl.numberOfPages = pageColors.count;
+  pageControl.numberOfPages = _pageColors.count;
 
   pageControl.pageIndicatorTintColor = [UIColor colorWithWhite:0 alpha:0.2];
   pageControl.currentPageIndicatorTintColor = [UIColor colorWithWhite:0 alpha:0.8];
@@ -84,6 +85,9 @@
                   action:@selector(didChangePage:)
         forControlEvents:UIControlEventValueChanged];
   pageControl.defersCurrentPageDisplay = YES;
+  pageControl.autoresizingMask = UIViewAutoresizingFlexibleTopMargin
+      | UIViewAutoresizingFlexibleLeftMargin
+      | UIViewAutoresizingFlexibleRightMargin;
   _pageControl = pageControl;
 
   // Add subviews
@@ -113,6 +117,26 @@
   CGPoint offset = _scrollView.contentOffset;
   offset.x = sender.currentPage * _scrollView.bounds.size.width;
   [_scrollView setContentOffset:offset animated:YES];
+}
+
+#pragma mark - Rotation
+
+- (void)viewWillTransitionToSize:(CGSize)size
+      withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+  CGRect newBounds = CGRectMake(0, 0, size.width, size.height);
+  // Adjust scrollView.
+  _scrollView.frame = newBounds;
+  _scrollView.contentSize = CGSizeMake(size.width * _pageColors.count, size.height);
+
+  // Reset current page offset.
+  CGPoint offset = _scrollView.contentOffset;
+  offset.x = _pageControl.currentPage * size.width;
+  [_scrollView setContentOffset:offset animated:YES];
+
+  // Adjust pages.
+  for (NSInteger i = 0; i < _pageColors.count; i++) {
+    _scrollView.subviews[i].frame = CGRectOffset(newBounds, i * size.width, 0);
+  }
 }
 
 @end
