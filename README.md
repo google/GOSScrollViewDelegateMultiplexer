@@ -53,3 +53,32 @@ myScrollView.delegate = _multiplexer;
 [_multiplexer addObservingDelegate:myControl];
 [_multiplexer addObservingDelegate:anotherControl];
 ```
+
+## Using the `GOSScrollViewDelegateCombining` protocol
+
+First conform to the `GOSScrollViewDelegateCombining` protocol:
+
+```objectivec
+@interface MyViewController () <GOSScrollViewDelegateCombining>
+@end
+
+[_multiplexer setCombiner:self];
+```
+
+Handle one of the `UIScrollViewDelegate` protocol methods that return a value:
+
+```objectivec
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
+  return myZoomingView;
+}
+```
+
+And finally return the desired observer's results from the combiner method:
+
+```objectivec
+- (UIView *)scrollViewDelegateMultiplexer:(GOSScrollViewDelegateMultiplexer *)multiplexer
+                viewForZoomingWithResults:(NSPointerArray *)results
+                  fromRespondingObservers:(NSArray *)respondingObservers {
+  return [results pointerAtIndex:0];
+}
+```

@@ -26,11 +26,13 @@
 #define RGBCOLOR(r, g, b) [UIColor colorWithRed:(r) / 255.0f green:(g) / 255.0f blue:(b) / 255.0f alpha:1]
 #define HEXCOLOR(hex) RGBCOLOR((((hex) >> 16) & 0xFF), (((hex) >> 8) & 0xFF), ((hex)&0xFF))
 
+@interface SVDMTypicalUseViewController () <GOSScrollViewDelegateCombining>
+@end
+
 @implementation SVDMTypicalUseViewController {
   UIScrollView *_scrollView;
   UIPageControl *_pageControl;
   NSArray *_pageColors;
-
   GOSScrollViewDelegateMultiplexer *_multiplexer;
 }
 
@@ -52,18 +54,22 @@
   _scrollView.pagingEnabled = YES;
   _scrollView.contentSize = CGSizeMake(boundsWidth * _pageColors.count, boundsHeight);
   _scrollView.minimumZoomScale = 0.5;
-  _scrollView.maximumZoomScale = 6.0;
+  _scrollView.maximumZoomScale = 1.5;
 
   // Add pages to scrollView.
   for (NSInteger i = 0; i < _pageColors.count; i++) {
     CGRect pageFrame = CGRectOffset(self.view.bounds, i * boundsWidth, 0);
-    UILabel *page = [[UILabel alloc] initWithFrame:pageFrame];
-    page.text = [NSString stringWithFormat:@"Page %zd", i + 1];
-    page.font = [UIFont systemFontOfSize:50];
-    page.textColor = [UIColor colorWithWhite:0 alpha:0.8];
-    page.textAlignment = NSTextAlignmentCenter;
+    UIView *page = [[UIView alloc] initWithFrame:pageFrame];
     page.backgroundColor = _pageColors[i];
     [_scrollView addSubview:page];
+
+    UILabel *pageTitle = [[UILabel alloc] initWithFrame:page.bounds];
+    pageTitle.text = [NSString stringWithFormat:@"Page %zd", i + 1];
+    pageTitle.font = [UIFont systemFontOfSize:50];
+    pageTitle.textColor = [UIColor colorWithWhite:0 alpha:0.8];
+    pageTitle.textAlignment = NSTextAlignmentCenter;
+    pageTitle.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [page addSubview:pageTitle];
   }
 
   // Page control configuration
@@ -101,6 +107,19 @@
   _scrollView.delegate = _multiplexer;
   [_multiplexer addObservingDelegate:self];
   [_multiplexer addObservingDelegate:pageControl];
+  [_multiplexer setCombiner:self];
+}
+
+#pragma mark - GOSScrollViewDelegateCombining
+
+- (UIView *)scrollViewDelegateMultiplexer:(GOSScrollViewDelegateMultiplexer *)multiplexer
+                viewForZoomingWithResults:(NSPointerArray *)results
+                  fromRespondingObservers:(NSArray *)respondingObservers {
+  // Lets return the results from the oberserver which is equal to self.
+  if (respondingObservers[0] == self) {
+    return [results pointerAtIndex:0];
+  }
+  return nil;
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -109,6 +128,12 @@
   NSLog(@"%@", NSStringFromSelector(_cmd));
 
   [_pageControl updateCurrentPageDisplay];
+}
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
+  // Since there are multiple observers, we will allow the combiner to return this page
+  // as the zooming view.
+  return scrollView.subviews[_pageControl.currentPage];
 }
 
 #pragma mark - User events
