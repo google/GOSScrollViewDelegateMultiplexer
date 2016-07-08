@@ -24,28 +24,19 @@ static NSString *const kScrollViewDidScroll = @"scrollViewDidScroll";
 
 /** Simple object that conforms to UIScrollViewDelegate protocol. */
 @interface ScrollObservingObject : UIView <UIScrollViewDelegate>
-- (instancetype)initWithExpectation:(XCTestExpectation *)expectation;
+@property(nonatomic) BOOL hasRecievedScrollViewDidScroll;
+
 @end
 
-@implementation ScrollObservingObject {
-  XCTestExpectation *_observerExpectation;
-}
-
-- (instancetype)initWithExpectation:(XCTestExpectation *)expectation {
-  self = [self initWithFrame:CGRectZero];
-  if (self) {
-    _observerExpectation = expectation;
-  }
-  return self;
-}
+@implementation ScrollObservingObject
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-  [_observerExpectation fulfill];
+  _hasRecievedScrollViewDidScroll = YES;
 }
 
 @end
 
-@interface ScrollViewDelegateMultiplexerExampleTests : XCTestCase <UIScrollViewDelegate>
+@interface ScrollViewDelegateMultiplexerExampleTests : XCTestCase
 @end
 
 @implementation ScrollViewDelegateMultiplexerExampleTests {
@@ -69,68 +60,99 @@ static NSString *const kScrollViewDidScroll = @"scrollViewDidScroll";
 #pragma mark - Tests
 
 - (void)testWithoutMultiplexer {
-  _expectation = [self expectationWithDescription:kScrollViewDidScroll];
+  // Given
+  ScrollObservingObject *scrollObserver = [[ScrollObservingObject alloc] init];
+  _scrollView.delegate = scrollObserver;
 
-  _scrollView.delegate = self;
-
-  // Instigate event.
+  // When
   [_scrollView setContentOffset:CGPointMake(50, 0) animated:YES];
 
-  [self waitForExpectationsWithTimeout:0
-                               handler:^(NSError *error) {
-                                 XCTAssertEqual(error, nil);
-                               }];
+  // Then
+  XCTAssertTrue(scrollObserver.hasRecievedScrollViewDidScroll);
 }
 
 - (void)testMuliplexerSingleDelegate {
-  _expectation = [self expectationWithDescription:kScrollViewDidScroll];
-
-  // Create scrollView delegate multiplexer.
+  // Given
+  ScrollObservingObject *scrollObserver = [[ScrollObservingObject alloc] init];
   _multiplexer = [[GOSScrollViewDelegateMultiplexer alloc] init];
-  [_multiplexer addObservingDelegate:self];
+  [_multiplexer addObservingDelegate:scrollObserver];
   _scrollView.delegate = _multiplexer;
 
-  // Instigate event.
+  // When
   [_scrollView setContentOffset:CGPointMake(50, 0) animated:YES];
 
-  [self waitForExpectationsWithTimeout:0
-                               handler:^(NSError *error) {
-                                 XCTAssertEqual(error, nil);
-                               }];
+  // Then
+  XCTAssertTrue(scrollObserver.hasRecievedScrollViewDidScroll);
 }
 
 - (void)testMuliplexerMultipleDelegate {
-  _expectation = [self expectationWithDescription:kScrollViewDidScroll];
-  _observerExpectation = [self expectationWithDescription:kScrollViewDidScroll];
-
-  // Create simple object
-  _observingObject = [[ScrollObservingObject alloc] initWithExpectation:_observerExpectation];
-
-  // Create scrollView delegate multiplexer.
+  // Given
   _multiplexer = [[GOSScrollViewDelegateMultiplexer alloc] init];
-  [_multiplexer addObservingDelegate:self];
-  [_multiplexer addObservingDelegate:_observingObject];
   _scrollView.delegate = _multiplexer;
 
-  // Instigate event.
+  ScrollObservingObject *scrollObserver = [[ScrollObservingObject alloc] init];
+  [_multiplexer addObservingDelegate:scrollObserver];
+  ScrollObservingObject *secondScrollObserver = [[ScrollObservingObject alloc] init];
+  [_multiplexer addObservingDelegate:secondScrollObserver];
+
+  // When
   [_scrollView setContentOffset:CGPointMake(50, 0) animated:YES];
 
-  [self waitForExpectationsWithTimeout:0
-                               handler:^(NSError *error) {
-                                 XCTAssertEqual(error, nil);
-
-                                 [self waitForExpectationsWithTimeout:0
-                                                              handler:^(NSError *error2) {
-                                                                XCTAssertEqual(error2, nil);
-                                                              }];
-
-                               }];
+  // Then
+  XCTAssertTrue(scrollObserver.hasRecievedScrollViewDidScroll);
+  XCTAssertTrue(secondScrollObserver.hasRecievedScrollViewDidScroll);
 }
 
-#pragma mark - UIScrollViewDelegate
+- (void)testRemoveDelegates{
+  // Given
+  ScrollObservingObject *scrollObserver = [[ScrollObservingObject alloc] init];
+  _multiplexer = [[GOSScrollViewDelegateMultiplexer alloc] init];
+  [_multiplexer addObservingDelegate:scrollObserver];
+  _scrollView.delegate = _multiplexer;
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-  [_expectation fulfill];
+  // When
+  [_multiplexer removeObservingDelegate:scrollObserver];
+  [_scrollView setContentOffset:CGPointMake(50, 0) animated:YES];
+
+  // Then
+  XCTAssertFalse(scrollObserver.hasRecievedScrollViewDidScroll);
+}
+
+- (void)testRemoveMultipleDelegates{
+  // Given
+  _multiplexer = [[GOSScrollViewDelegateMultiplexer alloc] init];
+  _scrollView.delegate = _multiplexer;
+
+  ScrollObservingObject *scrollObserver = [[ScrollObservingObject alloc] init];
+  [_multiplexer addObservingDelegate:scrollObserver];
+  ScrollObservingObject *secondScrollObserver = [[ScrollObservingObject alloc] init];
+  [_multiplexer addObservingDelegate:secondScrollObserver];
+
+  // When
+  [_multiplexer removeObservingDelegate:secondScrollObserver];
+  [_multiplexer removeObservingDelegate:scrollObserver];
+  [_scrollView setContentOffset:CGPointMake(50, 0) animated:YES];
+
+  // Then
+  XCTAssertFalse(scrollObserver.hasRecievedScrollViewDidScroll);
+  XCTAssertFalse(secondScrollObserver.hasRecievedScrollViewDidScroll);
+}
+
+- (void)testRemoveMultipleDelegatesOfTheSameObserver{
+  // Given
+  _multiplexer = [[GOSScrollViewDelegateMultiplexer alloc] init];
+  _scrollView.delegate = _multiplexer;
+
+  ScrollObservingObject *scrollObserver = [[ScrollObservingObject alloc] init];
+  [_multiplexer addObservingDelegate:scrollObserver];
+  [_multiplexer addObservingDelegate:scrollObserver];
+
+  // When
+  [_multiplexer removeObservingDelegate:scrollObserver];
+  [_scrollView setContentOffset:CGPointMake(50, 0) animated:YES];
+
+  // Then
+  XCTAssertFalse(scrollObserver.hasRecievedScrollViewDidScroll);
 }
 
 @end
