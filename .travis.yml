@@ -9,7 +9,7 @@ env:
   - LANG=en_US.UTF-8
   matrix:
     - DESTINATION="OS=9.2,name=iPhone 6 Plus" SDK=iphonesimulator9.2
-    - DESTINATION="OS=9.1,name=iPhone 6s" SDK=iphonesimulator9.2
+    - DESTINATION="OS=9.2,name=iPhone 6s" SDK=iphonesimulator9.2
     - DESTINATION="OS=9.0,name=iPhone 6 Plus" SDK=iphonesimulator9.2
     - DESTINATION="OS=8.4,name=iPhone 6" SDK=iphonesimulator9.2
     - DESTINATION="OS=8.3,name=iPhone 5S" SDK=iphonesimulator9.2
