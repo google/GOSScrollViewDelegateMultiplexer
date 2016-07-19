@@ -41,7 +41,7 @@
 }
 
 - (void)removeObservingDelegate:(id<UIScrollViewDelegate>)delegate {
-  for (NSUInteger i = 0; i < _observingDelegates.count; i++) {
+  for (NSInteger i = _observingDelegates.count -1; i >= 0; i--) {
     if ([_observingDelegates pointerAtIndex:i] == (__bridge void *)(delegate)) {
       [_observingDelegates removePointerAtIndex:i];
     }
