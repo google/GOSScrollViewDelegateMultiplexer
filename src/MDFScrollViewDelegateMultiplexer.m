@@ -18,11 +18,11 @@
 #error "This file requires ARC support."
 #endif
 
-#import "GOSScrollViewDelegateMultiplexer.h"
+#import "MDFScrollViewDelegateMultiplexer.h"
 
 #import <objc/runtime.h>
 
-@implementation GOSScrollViewDelegateMultiplexer {
+@implementation MDFScrollViewDelegateMultiplexer {
   NSPointerArray *_observingDelegates;
 }
 
@@ -48,7 +48,7 @@
   }
 }
 
-- (void)setCombiner:(id<GOSScrollViewDelegateCombining>)combiner {
+- (void)setCombiner:(id<MDFScrollViewDelegateCombining>)combiner {
   _combiner = combiner;
 }
 
@@ -174,7 +174,7 @@
     }
     NSAssert(hash.count == 1,
              @"-viewForZoomingInScrollView returns different results from multiple observers."
-              " Use the combiner protocol GOSScrollViewDelegateCombining to select the appropriate"
+              " Use the combiner protocol MDFScrollViewDelegateCombining to select the appropriate"
               " observer return value for this method.");
 #endif
 
@@ -226,7 +226,7 @@
     NSSet *set = [NSSet setWithArray:results];
     NSAssert(set.count == 1,
              @"-scrollViewShouldScrollToTop returns different results from multiple observers."
-              " Use the combiner protocol GOSScrollViewDelegateCombining to select the appropriate"
+              " Use the combiner protocol MDFScrollViewDelegateCombining to select the appropriate"
               " observer return value for this method.");
 #endif
 

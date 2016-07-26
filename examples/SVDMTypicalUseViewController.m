@@ -20,20 +20,20 @@
 
 #import "SVDMTypicalUseViewController.h"
 
-#import "GOSScrollViewDelegateMultiplexer.h"
+#import "MDFScrollViewDelegateMultiplexer.h"
 #import "ObservingPageControl.h"
 
 #define RGBCOLOR(r, g, b) [UIColor colorWithRed:(r) / 255.0f green:(g) / 255.0f blue:(b) / 255.0f alpha:1]
 #define HEXCOLOR(hex) RGBCOLOR((((hex) >> 16) & 0xFF), (((hex) >> 8) & 0xFF), ((hex)&0xFF))
 
-@interface SVDMTypicalUseViewController () <GOSScrollViewDelegateCombining>
+@interface SVDMTypicalUseViewController () <MDFScrollViewDelegateCombining>
 @end
 
 @implementation SVDMTypicalUseViewController {
   UIScrollView *_scrollView;
   UIPageControl *_pageControl;
   NSArray *_pageColors;
-  GOSScrollViewDelegateMultiplexer *_multiplexer;
+  MDFScrollViewDelegateMultiplexer *_multiplexer;
 }
 
 + (NSArray *)catalogBreadcrumbs {
@@ -103,16 +103,16 @@
 
   // Create scrollView delegate multiplexer and register observers
 
-  _multiplexer = [[GOSScrollViewDelegateMultiplexer alloc] init];
+  _multiplexer = [[MDFScrollViewDelegateMultiplexer alloc] init];
   _scrollView.delegate = _multiplexer;
   [_multiplexer addObservingDelegate:self];
   [_multiplexer addObservingDelegate:pageControl];
   [_multiplexer setCombiner:self];
 }
 
-#pragma mark - GOSScrollViewDelegateCombining
+#pragma mark - MDFScrollViewDelegateCombining
 
-- (UIView *)scrollViewDelegateMultiplexer:(GOSScrollViewDelegateMultiplexer *)multiplexer
+- (UIView *)scrollViewDelegateMultiplexer:(MDFScrollViewDelegateMultiplexer *)multiplexer
                 viewForZoomingWithResults:(NSPointerArray *)results
                   fromRespondingObservers:(NSArray *)respondingObservers {
   // Lets return the results from the oberserver which is equal to self.

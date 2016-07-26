@@ -16,10 +16,10 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol GOSScrollViewDelegateCombining;
+@protocol MDFScrollViewDelegateCombining;
 
 /**
- GOSScrollViewDelegateMultiplexer acts as a proxy object for UIScrollViewDelegate events and
+ MDFScrollViewDelegateMultiplexer acts as a proxy object for UIScrollViewDelegate events and
  forwards all received events to an ordered list of registered observers.
 
  When a UIScrollViewDelegate method invocation is received by the multiplexer, the multiplexer
@@ -30,17 +30,17 @@
  observers implement the method, a default return value will be used.
 
  However, if a combiner is set and the receiving class conforms to the
- GOSScrollViewDelegateCombining protocol, then the receiving class can designate which result
+ MDFScrollViewDelegateCombining protocol, then the receiving class can designate which result
  value to return via the use of the optional protocol methods.
 
  Example implementation:
 
-     _multiplexer = [[GOSScrollViewDelegateMultiplexer alloc] init];
+     _multiplexer = [[MDFScrollViewDelegateMultiplexer alloc] init];
      myScrollView.delegate = _multiplexer;
      [_multiplexer addObservingDelegate:myControl];
      [_multiplexer addObservingDelegate:anotherControl];
  */
-@interface GOSScrollViewDelegateMultiplexer : NSObject <UIScrollViewDelegate>
+@interface MDFScrollViewDelegateMultiplexer : NSObject <UIScrollViewDelegate>
 
 /**
  Adds an observing delegate to the end of the array of delegates.
@@ -57,23 +57,23 @@
 - (void)removeObservingDelegate:(nonnull id<UIScrollViewDelegate>)delegate;
 
 /**
- An optional delegate through which the GOSScrollViewDelegateMultiplexer may provide a
+ An optional delegate through which the MDFScrollViewDelegateMultiplexer may provide a
  single UIScrollViewDelegate protocol return value from its array of observing delegates.
  */
-@property(nonatomic, weak, null_resettable) id<GOSScrollViewDelegateCombining> combiner;
+@property(nonatomic, weak, null_resettable) id<MDFScrollViewDelegateCombining> combiner;
 
 @end
 
 /**
- The GOSScrollViewDelegateCombining protocol defines an internal mechanism through which
- GOSScrollViewDelegateMultiplexer provides an array of responding observing delegates
+ The MDFScrollViewDelegateCombining protocol defines an internal mechanism through which
+ MDFScrollViewDelegateMultiplexer provides an array of responding observing delegates
  and their respective return values.
 
  Since it is possible that multiple delegates may respond to UIScrollViewDelegate methods that
  provide return values, this protocol allows the receiver to select the specific value to return
  from an array of those responding result values.
  */
-@protocol GOSScrollViewDelegateCombining <NSObject>
+@protocol MDFScrollViewDelegateCombining <NSObject>
 @optional
 
 /**
@@ -87,7 +87,7 @@
 
  @return The preferred UIView result for this method.
  */
-- (nullable UIView *)scrollViewDelegateMultiplexer:(nonnull GOSScrollViewDelegateMultiplexer *)multiplexer
+- (nullable UIView *)scrollViewDelegateMultiplexer:(nonnull MDFScrollViewDelegateMultiplexer *)multiplexer
                          viewForZoomingWithResults:(nonnull NSPointerArray *)results
                            fromRespondingObservers:(nonnull NSArray *)respondingObservers;
 
@@ -101,7 +101,7 @@
 
  @return The preferred BOOL result for this method.
  */
-- (BOOL)scrollViewDelegateMultiplexer:(nonnull GOSScrollViewDelegateMultiplexer *)multiplexer
+- (BOOL)scrollViewDelegateMultiplexer:(nonnull MDFScrollViewDelegateMultiplexer *)multiplexer
          shouldScrollToTopWithResults:(nonnull NSArray *)results
               fromRespondingObservers:(nonnull NSArray *)respondingObservers;
 

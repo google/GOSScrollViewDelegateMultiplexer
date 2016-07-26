@@ -16,7 +16,7 @@
 
 #import <XCTest/XCTest.h>
 
-#import "GOSScrollViewDelegateMultiplexer.h"
+#import "MDFScrollViewDelegateMultiplexer.h"
 
 static NSString *const kScrollViewDidScroll = @"scrollViewDidScroll";
 
@@ -42,7 +42,7 @@ static NSString *const kScrollViewDidScroll = @"scrollViewDidScroll";
 @implementation ScrollViewDelegateMultiplexerExampleTests {
   UIScrollView *_scrollView;
   ScrollObservingObject *_observingObject;
-  GOSScrollViewDelegateMultiplexer *_multiplexer;
+  MDFScrollViewDelegateMultiplexer *_multiplexer;
   XCTestExpectation *_expectation;
   XCTestExpectation *_observerExpectation;
 }
@@ -74,7 +74,7 @@ static NSString *const kScrollViewDidScroll = @"scrollViewDidScroll";
 - (void)testMuliplexerSingleDelegate {
   // Given
   ScrollObservingObject *scrollObserver = [[ScrollObservingObject alloc] init];
-  _multiplexer = [[GOSScrollViewDelegateMultiplexer alloc] init];
+  _multiplexer = [[MDFScrollViewDelegateMultiplexer alloc] init];
   [_multiplexer addObservingDelegate:scrollObserver];
   _scrollView.delegate = _multiplexer;
 
@@ -87,7 +87,7 @@ static NSString *const kScrollViewDidScroll = @"scrollViewDidScroll";
 
 - (void)testMuliplexerMultipleDelegate {
   // Given
-  _multiplexer = [[GOSScrollViewDelegateMultiplexer alloc] init];
+  _multiplexer = [[MDFScrollViewDelegateMultiplexer alloc] init];
   _scrollView.delegate = _multiplexer;
 
   ScrollObservingObject *scrollObserver = [[ScrollObservingObject alloc] init];
@@ -106,7 +106,7 @@ static NSString *const kScrollViewDidScroll = @"scrollViewDidScroll";
 - (void)testRemoveDelegates{
   // Given
   ScrollObservingObject *scrollObserver = [[ScrollObservingObject alloc] init];
-  _multiplexer = [[GOSScrollViewDelegateMultiplexer alloc] init];
+  _multiplexer = [[MDFScrollViewDelegateMultiplexer alloc] init];
   [_multiplexer addObservingDelegate:scrollObserver];
   _scrollView.delegate = _multiplexer;
 
@@ -120,7 +120,7 @@ static NSString *const kScrollViewDidScroll = @"scrollViewDidScroll";
 
 - (void)testRemoveMultipleDelegates{
   // Given
-  _multiplexer = [[GOSScrollViewDelegateMultiplexer alloc] init];
+  _multiplexer = [[MDFScrollViewDelegateMultiplexer alloc] init];
   _scrollView.delegate = _multiplexer;
 
   ScrollObservingObject *scrollObserver = [[ScrollObservingObject alloc] init];
@@ -140,7 +140,7 @@ static NSString *const kScrollViewDidScroll = @"scrollViewDidScroll";
 
 - (void)testRemoveMultipleDelegatesOfTheSameObserver{
   // Given
-  _multiplexer = [[GOSScrollViewDelegateMultiplexer alloc] init];
+  _multiplexer = [[MDFScrollViewDelegateMultiplexer alloc] init];
   _scrollView.delegate = _multiplexer;
 
   ScrollObservingObject *scrollObserver = [[ScrollObservingObject alloc] init];
