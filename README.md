@@ -79,7 +79,7 @@ And finally return the desired observer's results from the combiner method:
 - (UIView *)scrollViewDelegateMultiplexer:(GOSScrollViewDelegateMultiplexer *)multiplexer
                 viewForZoomingWithResults:(NSPointerArray *)results
                   fromRespondingObservers:(NSArray *)respondingObservers {
-  // Lets return the results from the oberserver which is equal to self.
+  // Lets return the results from the observer which is equal to self.
   if (respondingObservers[0] == self) {
     return [results pointerAtIndex:0];
   }
