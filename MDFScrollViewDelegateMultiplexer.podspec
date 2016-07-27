@@ -8,8 +8,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/material-foundation/material-scrollview-delegate-multiplexer-ios.git", :tag => s.version.to_s }
   s.platform     = :ios, '7.0'
   s.requires_arc = true
-
   s.public_header_files = 'src/*.h'
   s.source_files = 'src/*.{h,m}'
-  s.header_mappings_dir = 'src/*'
 end
