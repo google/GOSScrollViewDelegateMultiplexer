@@ -16,14 +16,10 @@
 
 #import <UIKit/UIKit.h>
 
-#import "GOSScrollViewDelegateMultiplexer.h"
+#import "MDFScrollViewDelegateMultiplexer.h"
 
 //! Project version number for ScrollViewDelegateMultiplexer.
 FOUNDATION_EXPORT double ScrollViewDelegateMultiplexerVersionNumber;
 
 //! Project version string for ScrollViewDelegateMultiplexer.
 FOUNDATION_EXPORT const unsigned char ScrollViewDelegateMultiplexerVersionString[];
-
-// In this header, you should import all the public headers of your framework using statements like #import <ScrollViewDelegateMultiplexer/PublicHeader.h>
-
-

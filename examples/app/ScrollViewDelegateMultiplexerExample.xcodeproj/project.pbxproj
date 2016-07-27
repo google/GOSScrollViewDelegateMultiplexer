@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5D64A5001CB44F1F00EC4788 /* GOSScrollViewDelegateMultiplexerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D64A4FD1CB44F1F00EC4788 /* GOSScrollViewDelegateMultiplexerTests.m */; };
+		5D64A5001CB44F1F00EC4788 /* ScrollViewDelegateMultiplexerExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D64A4FD1CB44F1F00EC4788 /* ScrollViewDelegateMultiplexerExampleTests.m */; };
 		5D64A5011CB44F1F00EC4788 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D64A4FF1CB44F1F00EC4788 /* Info.plist */; };
 		666CA7581CB41B6F001B1884 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 666CA7571CB41B6F001B1884 /* main.m */; };
 		666CA75B1CB41B6F001B1884 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 666CA75A1CB41B6F001B1884 /* AppDelegate.m */; };
@@ -16,8 +16,8 @@
 		666CA7751CB41BBB001B1884 /* ScrollViewDelegateMultiplexer.h in Headers */ = {isa = PBXBuildFile; fileRef = 666CA7741CB41BBB001B1884 /* ScrollViewDelegateMultiplexer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		666CA7791CB41BBB001B1884 /* ScrollViewDelegateMultiplexer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 666CA7721CB41BBB001B1884 /* ScrollViewDelegateMultiplexer.framework */; };
 		666CA77A1CB41BBB001B1884 /* ScrollViewDelegateMultiplexer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 666CA7721CB41BBB001B1884 /* ScrollViewDelegateMultiplexer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		666CA7821CB41BDF001B1884 /* GOSScrollViewDelegateMultiplexer.h in Headers */ = {isa = PBXBuildFile; fileRef = 666CA7801CB41BDF001B1884 /* GOSScrollViewDelegateMultiplexer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		666CA7831CB41BDF001B1884 /* GOSScrollViewDelegateMultiplexer.m in Sources */ = {isa = PBXBuildFile; fileRef = 666CA7811CB41BDF001B1884 /* GOSScrollViewDelegateMultiplexer.m */; };
+		666CA7821CB41BDF001B1884 /* MDFScrollViewDelegateMultiplexer.h in Headers */ = {isa = PBXBuildFile; fileRef = 666CA7801CB41BDF001B1884 /* MDFScrollViewDelegateMultiplexer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		666CA7831CB41BDF001B1884 /* MDFScrollViewDelegateMultiplexer.m in Sources */ = {isa = PBXBuildFile; fileRef = 666CA7811CB41BDF001B1884 /* MDFScrollViewDelegateMultiplexer.m */; };
 		666CA7881CB41C0C001B1884 /* ObservingPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 666CA7851CB41C0C001B1884 /* ObservingPageControl.m */; };
 		666CA7891CB41C0C001B1884 /* SVDMTypicalUseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 666CA7871CB41C0C001B1884 /* SVDMTypicalUseViewController.m */; };
 		666CA79A1CB41C7E001B1884 /* ScrollViewDelegateMultiplexer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 666CA7721CB41BBB001B1884 /* ScrollViewDelegateMultiplexer.framework */; };
@@ -55,7 +55,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5D64A4FD1CB44F1F00EC4788 /* GOSScrollViewDelegateMultiplexerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GOSScrollViewDelegateMultiplexerTests.m; sourceTree = "<group>"; };
+		5D64A4FD1CB44F1F00EC4788 /* ScrollViewDelegateMultiplexerExampleTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ScrollViewDelegateMultiplexerExampleTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		5D64A4FF1CB44F1F00EC4788 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		666CA7531CB41B6F001B1884 /* ScrollViewDelegateMultiplexerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScrollViewDelegateMultiplexerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		666CA7571CB41B6F001B1884 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -67,8 +67,8 @@
 		666CA7721CB41BBB001B1884 /* ScrollViewDelegateMultiplexer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ScrollViewDelegateMultiplexer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		666CA7741CB41BBB001B1884 /* ScrollViewDelegateMultiplexer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScrollViewDelegateMultiplexer.h; sourceTree = "<group>"; };
 		666CA7761CB41BBB001B1884 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		666CA7801CB41BDF001B1884 /* GOSScrollViewDelegateMultiplexer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GOSScrollViewDelegateMultiplexer.h; sourceTree = "<group>"; };
-		666CA7811CB41BDF001B1884 /* GOSScrollViewDelegateMultiplexer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GOSScrollViewDelegateMultiplexer.m; sourceTree = "<group>"; };
+		666CA7801CB41BDF001B1884 /* MDFScrollViewDelegateMultiplexer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = MDFScrollViewDelegateMultiplexer.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		666CA7811CB41BDF001B1884 /* MDFScrollViewDelegateMultiplexer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDFScrollViewDelegateMultiplexer.m; sourceTree = "<group>"; };
 		666CA7841CB41C0C001B1884 /* ObservingPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ObservingPageControl.h; path = ../../ObservingPageControl.h; sourceTree = "<group>"; };
 		666CA7851CB41C0C001B1884 /* ObservingPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ObservingPageControl.m; path = ../../ObservingPageControl.m; sourceTree = "<group>"; };
 		666CA7861CB41C0C001B1884 /* SVDMTypicalUseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVDMTypicalUseViewController.h; path = ../../SVDMTypicalUseViewController.h; sourceTree = "<group>"; };
@@ -115,7 +115,7 @@
 		5D64A4FC1CB44F1F00EC4788 /* unit */ = {
 			isa = PBXGroup;
 			children = (
-				5D64A4FD1CB44F1F00EC4788 /* GOSScrollViewDelegateMultiplexerTests.m */,
+				5D64A4FD1CB44F1F00EC4788 /* ScrollViewDelegateMultiplexerExampleTests.m */,
 				5D64A4FE1CB44F1F00EC4788 /* resources */,
 			);
 			path = unit;
@@ -187,8 +187,8 @@
 		666CA77F1CB41BD5001B1884 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				666CA7801CB41BDF001B1884 /* GOSScrollViewDelegateMultiplexer.h */,
-				666CA7811CB41BDF001B1884 /* GOSScrollViewDelegateMultiplexer.m */,
+				666CA7801CB41BDF001B1884 /* MDFScrollViewDelegateMultiplexer.h */,
+				666CA7811CB41BDF001B1884 /* MDFScrollViewDelegateMultiplexer.m */,
 			);
 			name = src;
 			path = ../../../src;
@@ -202,7 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				666CA7751CB41BBB001B1884 /* ScrollViewDelegateMultiplexer.h in Headers */,
-				666CA7821CB41BDF001B1884 /* GOSScrollViewDelegateMultiplexer.h in Headers */,
+				666CA7821CB41BDF001B1884 /* MDFScrollViewDelegateMultiplexer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,7 +348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				666CA7831CB41BDF001B1884 /* GOSScrollViewDelegateMultiplexer.m in Sources */,
+				666CA7831CB41BDF001B1884 /* MDFScrollViewDelegateMultiplexer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,7 +356,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D64A5001CB44F1F00EC4788 /* GOSScrollViewDelegateMultiplexerTests.m in Sources */,
+				5D64A5001CB44F1F00EC4788 /* ScrollViewDelegateMultiplexerExampleTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
