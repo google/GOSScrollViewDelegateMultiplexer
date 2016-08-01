@@ -1,8 +1,9 @@
 # MDFScrollViewDelegateMultiplexer
 [![Build Status](https://travis-ci.org/material-foundation/material-scrollview-delegate-multiplexer-ios.svg?branch=master)](https://travis-ci.org/material-foundation/material-scrollview-delegate-multiplexer-ios)
+[![Code Coverage](http://codecov.io/github/material-foundation/material-scrollview-delegate-multiplexer-ios/coverage.svg?branch=master)](http://codecov.io/github/material-foundation/material-scrollview-delegate-multiplexer-ios?branch=master)
 
 This class acts as a proxy object for `UIScrollViewDelegate` events and forwards all received
-events to an ordered list of registered observers.
+events to an ordered list of registered observers. 
 
 ## Installation
 

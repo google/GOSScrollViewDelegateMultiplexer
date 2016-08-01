@@ -21,5 +21,6 @@ before_install:
   - git submodule update
 script:
   - set -o pipefail
-  - xcodebuild -workspace examples/app/ScrollViewDelegateMultiplexerExample.xcworkspace -scheme ScrollViewDelegateMultiplexerExample -sdk "$SDK" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO build test | xcpretty -c;
-
+  - xcodebuild -workspace examples/app/ScrollViewDelegateMultiplexerExample.xcworkspace -scheme ScrollViewDelegateMultiplexerExample -sdk "$SDK" -destination "$DESTINATION" -configuration Debug GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES ONLY_ACTIVE_ARCH=NO build test | xcpretty -c;
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
