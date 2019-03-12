@@ -10,7 +10,7 @@ events to an ordered list of registered observers.
 ### Requirements
 
 - Xcode 7.0 or higher.
-- iOS SDK version 7.0 or higher.
+- iOS SDK version 9.0 or higher.
 
 ### Installation with CocoaPods
 
