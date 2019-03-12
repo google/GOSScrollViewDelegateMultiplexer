@@ -1,4 +1,10 @@
-## 2.0.1
+## 3.0.0
+
+##### Breaking
+
+* Increases the minimum supported OS version to iOS 9.0
+
+### 2.0.1
 
 ##### Enhancements
 
