@@ -11,10 +11,6 @@ env:
     - DESTINATION="OS=9.2,name=iPhone 6 Plus" SDK=iphonesimulator9.2
     - DESTINATION="OS=9.2,name=iPhone 6s" SDK=iphonesimulator9.2
     - DESTINATION="OS=9.0,name=iPhone 6 Plus" SDK=iphonesimulator9.2
-    - DESTINATION="OS=8.4,name=iPhone 6" SDK=iphonesimulator9.2
-    - DESTINATION="OS=8.3,name=iPhone 5S" SDK=iphonesimulator9.2
-    - DESTINATION="OS=8.2,name=iPhone 5" SDK=iphonesimulator9.2
-    - DESTINATION="OS=8.1,name=iPhone 4s" SDK=iphonesimulator9.2
 before_install:
   - gem install cocoapods --no-rdoc --no-ri --no-document --quiet
   - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
